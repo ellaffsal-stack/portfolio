@@ -1,5 +1,6 @@
-@import url('https://googleapis.com');
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap');
 
+/* Global Reset */
 * {
     margin: 0;
     padding: 0;
@@ -11,9 +12,14 @@ html {
     scroll-behavior: smooth;
 }
 
+/* Main Background */
 body {
-    background: radial-gradient(circle at 50% 0%, #1b1448 0%, #090a1f 45%, #03040b 100%);
-    background-attachment: fixed;
+    background: radial-gradient(
+        circle at 50% 0%,
+        #1b1448 0%,
+        #090a1f 45%,
+        #03040b 100%
+    );
     color: #f8fafc;
     min-height: 100vh;
     overflow-x: hidden;
@@ -24,6 +30,7 @@ body {
     position: relative;
 }
 
+/* Galaxy Glow */
 body::before {
     content: "";
     position: fixed;
@@ -33,7 +40,7 @@ body::before {
     height: 140%;
     z-index: -2;
     pointer-events: none;
-    background: 
+    background:
         radial-gradient(circle at 25% 25%, rgba(168, 85, 247, 0.35) 0%, transparent 45%),
         radial-gradient(circle at 75% 30%, rgba(56, 189, 248, 0.28) 0%, transparent 45%),
         radial-gradient(circle at 50% 65%, rgba(236, 72, 153, 0.24) 0%, transparent 50%),
@@ -43,10 +50,15 @@ body::before {
 }
 
 @keyframes galaxyDrift {
-    0% { transform: scale(1) rotate(0deg); }
-    100% { transform: scale(1.1) rotate(3deg); }
+    0% {
+        transform: scale(1) rotate(0deg);
+    }
+    100% {
+        transform: scale(1.1) rotate(3deg);
+    }
 }
 
+/* Stars */
 body::after {
     content: "";
     position: fixed;
@@ -58,7 +70,7 @@ body::after {
     pointer-events: none;
     background: transparent;
     border-radius: 50%;
-    box-shadow: 
+    box-shadow:
         90px 65px #fff, 210px 145px #e0e7ff, 355px 85px #d8b4fe, 505px 205px #fff,
         655px 95px #fbcfe8, 805px 185px #fff, 955px 65px #bae6fd, 1105px 195px #fff,
         1255px 95px #fff, 1405px 175px #ddd6fe, 130px 300px #fff, 295px 370px #fff,
@@ -73,10 +85,15 @@ body::after {
 }
 
 @keyframes twinkleStars {
-    0% { opacity: 0.35; }
-    100% { opacity: 1; }
+    0% {
+        opacity: 0.35;
+    }
+    100% {
+        opacity: 1;
+    }
 }
 
+/* Shooting Stars */
 main::before,
 main::after {
     content: "";
@@ -122,6 +139,7 @@ main::after {
     }
 }
 
+/* Header */
 header {
     position: fixed;
     top: 16px;
@@ -136,7 +154,9 @@ header {
     border: 1px solid rgba(216, 180, 254, 0.22);
     border-radius: 50px;
     padding: 12px 24px;
-    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.5), 0 0 20px rgba(168, 85, 247, 0.15);
+    box-shadow:
+        0 10px 35px rgba(0, 0, 0, 0.5),
+        0 0 20px rgba(168, 85, 247, 0.15);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -178,6 +198,7 @@ header nav a:hover {
     box-shadow: 0 0 15px rgba(168, 85, 247, 0.4);
 }
 
+/* Main Content */
 main {
     max-width: 680px;
     margin: 20px auto 80px;
@@ -188,6 +209,7 @@ main {
     gap: 28px;
 }
 
+/* Sections */
 section {
     width: 100%;
     scroll-margin-top: 135px;
@@ -251,6 +273,7 @@ section p strong {
     font-weight: 600;
 }
 
+/* References */
 #references p:nth-of-type(n+2) {
     font-size: 0.93rem;
     color: #f1f5f9;
@@ -267,6 +290,7 @@ section p strong {
     border-color: rgba(216, 180, 254, 0.35);
 }
 
+/* QR Code */
 .qr-container {
     display: flex;
     justify-content: center;
@@ -280,7 +304,9 @@ section p strong {
     border-radius: 18px;
     padding: 7px;
     background: rgba(255, 255, 255, 0.96);
-    box-shadow: 0 0 25px rgba(168, 85, 247, 0.5), 0 0 45px rgba(56, 189, 248, 0.2);
+    box-shadow:
+        0 0 25px rgba(168, 85, 247, 0.5),
+        0 0 45px rgba(56, 189, 248, 0.2);
     transition: transform 0.3s ease;
 }
 
@@ -288,6 +314,7 @@ section p strong {
     transform: scale(1.06) rotate(1deg);
 }
 
+/* Game Button */
 .game-btn-container {
     display: flex;
     justify-content: center;
@@ -315,6 +342,7 @@ section p strong {
     box-shadow: 0 8px 28px rgba(236, 72, 153, 0.6);
 }
 
+/* Social Links */
 .social-links {
     display: flex;
     flex-wrap: wrap;
@@ -347,20 +375,24 @@ section p strong {
     box-shadow: 0 6px 20px rgba(168, 85, 247, 0.3);
 }
 
+/* Responsive Design */
 @media (max-width: 600px) {
     body {
         padding-top: 145px;
     }
+
     header {
         top: 10px;
         width: calc(100% - 20px);
         border-radius: 26px;
         padding: 10px 14px;
     }
+
     section {
         scroll-margin-top: 145px;
         padding: 24px 18px;
     }
+
     .social-item {
         width: 100%;
     }
