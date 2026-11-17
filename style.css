@@ -1,6 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700&display=swap');
 
-/* Global Reset */
+:root {
+    color-scheme: dark;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -10,11 +13,12 @@
 
 html {
     scroll-behavior: smooth;
+    background-color: #03040b;
 }
 
-/* Main Background */
 body {
-    background: radial-gradient(
+    background-color: #03040b;
+    background-image: radial-gradient(
         circle at 50% 0%,
         #1b1448 0%,
         #090a1f 45%,
@@ -28,37 +32,39 @@ body {
     text-align: center;
     font-size: 16px;
     position: relative;
+    z-index: 1;
 }
 
-/* Galaxy Glow */
 body::before {
     content: "";
     position: fixed;
-    top: -20%;
-    left: -20%;
-    width: 140%;
-    height: 140%;
-    z-index: -2;
+    top: -10%;
+    left: -10%;
+    width: 120%;
+    height: 120%;
+    z-index: -1;
     pointer-events: none;
+    transform: translateZ(0);
+    -webkit-transform: translateZ(0);
     background:
-        radial-gradient(circle at 25% 25%, rgba(168, 85, 247, 0.35) 0%, transparent 45%),
-        radial-gradient(circle at 75% 30%, rgba(56, 189, 248, 0.28) 0%, transparent 45%),
-        radial-gradient(circle at 50% 65%, rgba(236, 72, 153, 0.24) 0%, transparent 50%),
-        radial-gradient(circle at 20% 80%, rgba(99, 102, 241, 0.3) 0%, transparent 45%);
-    filter: blur(50px);
+        radial-gradient(circle at 25% 25%, rgba(168, 85, 247, 0.30) 0%, rgba(168, 85, 247, 0) 55%),
+        radial-gradient(circle at 75% 30%, rgba(56, 189, 248, 0.23) 0%, rgba(56, 189, 248, 0) 55%),
+        radial-gradient(circle at 50% 65%, rgba(236, 72, 153, 0.20) 0%, rgba(236, 72, 153, 0) 60%),
+        radial-gradient(circle at 20% 80%, rgba(99, 102, 241, 0.26) 0%, rgba(99, 102, 241, 0) 55%);
     animation: galaxyDrift 16s ease-in-out infinite alternate;
 }
 
 @keyframes galaxyDrift {
     0% {
-        transform: scale(1) rotate(0deg);
+        transform: scale(1) rotate(0deg) translateZ(0);
+        -webkit-transform: scale(1) rotate(0deg) translateZ(0);
     }
     100% {
-        transform: scale(1.1) rotate(3deg);
+        transform: scale(1.08) rotate(3deg) translateZ(0);
+        -webkit-transform: scale(1.08) rotate(3deg) translateZ(0);
     }
 }
 
-/* Stars */
 body::after {
     content: "";
     position: fixed;
@@ -68,8 +74,10 @@ body::after {
     height: 2.5px;
     z-index: -1;
     pointer-events: none;
-    background: transparent;
+    background-color: rgba(255, 255, 255, 0);
     border-radius: 50%;
+    transform: translateZ(0);
+    -webkit-transform: translateZ(0);
     box-shadow:
         90px 65px #fff, 210px 145px #e0e7ff, 355px 85px #d8b4fe, 505px 205px #fff,
         655px 95px #fbcfe8, 805px 185px #fff, 955px 65px #bae6fd, 1105px 195px #fff,
@@ -93,7 +101,6 @@ body::after {
     }
 }
 
-/* Shooting Stars */
 main::before,
 main::after {
     content: "";
@@ -102,10 +109,11 @@ main::after {
     right: 10%;
     width: 170px;
     height: 2px;
-    background: linear-gradient(90deg, #ffffff, rgba(216, 180, 254, 0.6), transparent);
+    background: linear-gradient(90deg, #ffffff, rgba(216, 180, 254, 0.6), rgba(216, 180, 254, 0));
     z-index: -1;
     pointer-events: none;
-    transform: rotate(-35deg);
+    transform: rotate(-35deg) translateZ(0);
+    -webkit-transform: rotate(-35deg) translateZ(0);
     opacity: 0;
     animation: shootingStar 4.8s linear infinite;
 }
@@ -125,6 +133,7 @@ main::after {
 @keyframes shootingStar {
     0% {
         transform: rotate(-35deg) translateX(0);
+        -webkit-transform: rotate(-35deg) translateX(0);
         opacity: 0;
     }
     8% {
@@ -135,20 +144,21 @@ main::after {
     }
     100% {
         transform: rotate(-35deg) translateX(-1250px);
+        -webkit-transform: rotate(-35deg) translateX(-1250px);
         opacity: 0;
     }
 }
 
-/* Header */
 header {
     position: fixed;
     top: 16px;
     left: 50%;
     transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
     width: calc(100% - 32px);
     max-width: 720px;
     z-index: 1000;
-    background: rgba(12, 14, 38, 0.5);
+    background: rgba(12, 14, 38, 0.65);
     backdrop-filter: blur(18px);
     -webkit-backdrop-filter: blur(18px);
     border: 1px solid rgba(216, 180, 254, 0.22);
@@ -166,7 +176,9 @@ header {
 header h1 {
     font-size: 1.45rem;
     font-weight: 700;
+    color: #e879f9;
     background: linear-gradient(90deg, #ffffff 0%, #e879f9 45%, #38bdf8 100%);
+    background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     letter-spacing: 0.5px;
@@ -198,7 +210,6 @@ header nav a:hover {
     box-shadow: 0 0 15px rgba(168, 85, 247, 0.4);
 }
 
-/* Main Content */
 main {
     max-width: 680px;
     margin: 20px auto 80px;
@@ -209,13 +220,12 @@ main {
     gap: 28px;
 }
 
-/* Sections */
 section {
     width: 100%;
     scroll-margin-top: 135px;
-    background: rgba(15, 18, 45, 0.25);
-    backdrop-filter: blur(7px);
-    -webkit-backdrop-filter: blur(7px);
+    background: rgba(15, 18, 45, 0.38);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.12);
     border-top: 2px solid rgba(216, 180, 254, 0.45);
     border-radius: 26px;
@@ -230,7 +240,7 @@ section {
 
 section:hover {
     transform: translateY(-4px);
-    background: rgba(20, 24, 58, 0.38);
+    background: rgba(20, 24, 58, 0.48);
     border-color: rgba(216, 180, 254, 0.4);
     box-shadow: 0 16px 45px rgba(168, 85, 247, 0.2);
 }
@@ -239,7 +249,9 @@ section h2 {
     font-size: 1.5rem;
     font-weight: 700;
     margin-bottom: 16px;
+    color: #d8b4fe;
     background: linear-gradient(90deg, #ffffff, #d8b4fe);
+    background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     letter-spacing: 0.4px;
@@ -253,6 +265,7 @@ section h2::after {
     bottom: 0;
     left: 50%;
     transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
     width: 45px;
     height: 2.5px;
     border-radius: 4px;
@@ -273,7 +286,6 @@ section p strong {
     font-weight: 600;
 }
 
-/* References */
 #references p:nth-of-type(n+2) {
     font-size: 0.93rem;
     color: #f1f5f9;
@@ -290,7 +302,6 @@ section p strong {
     border-color: rgba(216, 180, 254, 0.35);
 }
 
-/* QR Code */
 .qr-container {
     display: flex;
     justify-content: center;
@@ -314,7 +325,6 @@ section p strong {
     transform: scale(1.06) rotate(1deg);
 }
 
-/* Game Button */
 .game-btn-container {
     display: flex;
     justify-content: center;
@@ -342,7 +352,6 @@ section p strong {
     box-shadow: 0 8px 28px rgba(236, 72, 153, 0.6);
 }
 
-/* Social Links */
 .social-links {
     display: flex;
     flex-wrap: wrap;
@@ -375,7 +384,6 @@ section p strong {
     box-shadow: 0 6px 20px rgba(168, 85, 247, 0.3);
 }
 
-/* Responsive Design */
 @media (max-width: 600px) {
     body {
         padding-top: 145px;
